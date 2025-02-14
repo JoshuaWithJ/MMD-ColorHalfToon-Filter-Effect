@@ -1,5 +1,6 @@
 # MMD-ColorHalfToon-Filter-Effect
 ColorHalfToon - Filter Effect by Joshua
+![](https://i.imgur.com/7ZWOE8S.jpeg)
 
 # CONTACT AND SUPPORT:
 - [Carrd](https://joshuawithj.carrd.co)
