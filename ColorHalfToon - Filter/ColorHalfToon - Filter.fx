@@ -112,6 +112,10 @@ float3 ColorToneMapping( float3 c)
 float4 MaterialDiffuse : DIFFUSE  < string Object = "Geometry"; >;
 static float alphaM = MaterialDiffuse.a;
 /////////////////////////////////////////////////////////////////////////////////
+// Acc
+float AcsSi : CONTROLOBJECT < string name = "(self)"; string item = "Si"; >;
+static float Scale = AcsSi * 0.1f;
+/////////////////////////////////////////////////////////////////////////////////
 // HUE CODE
 
 float3 RGBtoHSL(float3 color)
@@ -230,7 +234,7 @@ float4 ScenePS(VS_OUTPUT IN) : COLOR0
 	float Alpha = 1;
 	
 	
-	float3 sceneStep = step( 0.5 , scene) ? 1 : 0;
+	float3 sceneStep = step( 0.5 * Scale , scene) ? 1 : 0;
 	
 	scene.rgb	= lerp(scene,sceneStep,AlphaMask * alphaM);
 	
@@ -249,6 +253,7 @@ float4 ScenePS(VS_OUTPUT IN) : COLOR0
 	
 	
 	//HUE
+	
     // Convert to HSL
     float3 hsl = RGBtoHSL(scene);
 
